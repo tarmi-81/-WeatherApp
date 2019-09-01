@@ -7,6 +7,10 @@
 //
 
 import UIKit
+// viper architekturu
+// kladanie default mesta do defaults
+// ikony
+// mapovanie rx na UI 
 
 class ViewController: UIViewController {
     var weatherModel: WeatherStruct?
@@ -39,9 +43,7 @@ class ViewController: UIViewController {
             switch result {
             case .success(let weatherModel):
                 self.weatherModel = weatherModel
-                DispatchQueue.main.async {
                     self.updateWeatherInfo(info: weatherModel)
-                }
                 print(weatherModel)
             case .failure(let error):
                 print("Error \(error.localizedDescription)")
