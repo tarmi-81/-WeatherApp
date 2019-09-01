@@ -10,6 +10,9 @@ import Foundation
 import Alamofire
 
 class NetworkManger {
+    static let shared = NetworkManger()
+    private init(){}
+    
     private  let appId = "8420fd1fb7b23a1ee685b7ca3787c7c8"
     private  let apiHost = "api.openweathermap.org"
     private  let apiPath = "/data/2.5/weather"

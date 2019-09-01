@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,76 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="weatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AAH-ag-twG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25℃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCC-GF-MwG">
+                                <rect key="frame" x="127" y="407" width="160" height="82"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="68"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New York" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilP-BG-oo6">
+                                <rect key="frame" x="127" y="489" width="96" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mPS-gj-CPp">
+                                <rect key="frame" x="234" y="281" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="P6b-Hb-q4B"/>
+                                    <constraint firstAttribute="height" constant="120" id="Wen-jZ-u94"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went wrong..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QT9-O1-uTi">
+                                <rect key="frame" x="127" y="526" width="287" height="27"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="22"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Cp-Fm-5QC">
+                                <rect key="frame" x="53" y="69" width="301" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAV-hq-Lqh">
+                                <rect key="frame" x="308" y="107" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="SearchButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Aj-P5-Z9J"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MCC-GF-MwG" firstAttribute="centerY" secondItem="AAH-ag-twG" secondAttribute="centerY" id="2sI-ky-PUl"/>
+                            <constraint firstItem="qto-Ex-11f" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ilP-BG-oo6" secondAttribute="trailing" symbolic="YES" id="4LO-n0-wKB"/>
+                            <constraint firstItem="MCC-GF-MwG" firstAttribute="centerX" secondItem="AAH-ag-twG" secondAttribute="centerX" id="B5J-0S-5DZ"/>
+                            <constraint firstItem="ilP-BG-oo6" firstAttribute="top" secondItem="MCC-GF-MwG" secondAttribute="bottom" id="N79-RB-spR"/>
+                            <constraint firstItem="qto-Ex-11f" firstAttribute="trailing" secondItem="QT9-O1-uTi" secondAttribute="trailing" id="Sz8-ov-wbh"/>
+                            <constraint firstItem="QT9-O1-uTi" firstAttribute="top" secondItem="ilP-BG-oo6" secondAttribute="bottom" constant="8" id="UCM-Zx-Sac"/>
+                            <constraint firstItem="MCC-GF-MwG" firstAttribute="top" secondItem="mPS-gj-CPp" secondAttribute="bottom" constant="6" id="aUQ-zr-wcX"/>
+                            <constraint firstItem="ilP-BG-oo6" firstAttribute="leading" secondItem="MCC-GF-MwG" secondAttribute="leading" id="bt1-me-cdh"/>
+                            <constraint firstItem="QT9-O1-uTi" firstAttribute="leading" secondItem="ilP-BG-oo6" secondAttribute="leading" id="dUn-1I-iyi"/>
+                            <constraint firstItem="qto-Ex-11f" firstAttribute="trailing" secondItem="mPS-gj-CPp" secondAttribute="trailing" constant="60" id="zKe-M1-WAb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qto-Ex-11f"/>
                     </view>
+                    <connections>
+                        <outlet property="cityLabel" destination="ilP-BG-oo6" id="YjJ-5T-oYf"/>
+                        <outlet property="errorLabel" destination="QT9-O1-uTi" id="111-Ih-Z23"/>
+                        <outlet property="searchButton" destination="RAV-hq-Lqh" id="FhH-HU-VSj"/>
+                        <outlet property="searchText" destination="4Cp-Fm-5QC" id="Ks9-pM-OYq"/>
+                        <outlet property="tempLabel" destination="MCC-GF-MwG" id="s3m-sr-5nA"/>
+                        <outlet property="weatherIcon" destination="mPS-gj-CPp" id="mvD-FN-c8l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="47.826086956521742" y="53.571428571428569"/>
         </scene>
     </scenes>
 </document>

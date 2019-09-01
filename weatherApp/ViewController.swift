@@ -9,16 +9,57 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var weatherModel: WeatherStruct?
+    //var weatherManager = WeatherDataModel()
+ 
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var weatherIcon: UIImageView!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var searchText: UITextField!
+    
+    @IBAction func SearchButtonClick(_ sender: Any) {
+        updateCityInfo(city: searchText.text ?? "Kosice")
+    }
+    func setupViews() {
+        errorLabel.layer.opacity = 0
+        weatherIcon.image = UIImage(named: "Cloud-Refresh")
+        tempLabel.text = "--℃"
+        cityLabel.text = "Updating..."
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-       // NetworkManger().getWeatherDataByCity(city:"Kosice",completion: )
-        NetworkManger().getWeatherDataByCity(city: "Kosice", completion: { (result) in
-            print(result)
+        updateCityInfo(city: "Kosice")
+    }
+    func updateCityInfo(city: String){
+        NetworkManger.shared.getWeatherDataByCity(city: city, completion: { (result) in
+            
+            switch result {
+            case .success(let weatherModel):
+                self.weatherModel = weatherModel
+                DispatchQueue.main.async {
+                    self.updateWeatherInfo(info: weatherModel)
+                }
+                print(weatherModel)
+            case .failure(let error):
+                print("Error \(error.localizedDescription)")
+            }
+            
         })
     }
-
+    
+    func updateWeatherInfo(info: WeatherStruct) {
+        tempLabel.text = Int(info.main.temp).description + "℃"
+        cityLabel.text = info.name
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        get {
+            return .lightContent
+        }
+    }
 
 }
 
