@@ -22,7 +22,7 @@ class Presenter: InteractorProtocolOutput {
         
         view.tempLabel.text = "--℃"
         view.cityLabel.text = "Updating..."
-        view.weatherIcon.image = UIImage(named: "001lighticons-1")
+        view.weatherIcon.image = UIImage(named: "001lighticons-13")
     }
     
     func updateWeather(model: WeatherModel) {
@@ -30,13 +30,19 @@ class Presenter: InteractorProtocolOutput {
         view.tempLabel.text = Int(model.main.temp).description + "℃"
         view.cityLabel.text = model.name
         guard let currentWeather = model.weather.first else {
-            view.weatherIcon.image = UIImage(named: "001lighticons-1")
+            view.weatherIcon.image = UIImage(named: "001lighticons-13")
             return
         }
         view.weatherIcon.image  = UIImage(named: model.updateWeatherIcon(weatherID: currentWeather.id))
     }
+    func startLoading(){
+        setupView()
+    }
     func searchWeather(city: String){
-        
+        startLoading()
         interactor!.updateCityInfo(city: city)
+    }
+    func showErrorMessage(title: String, message: String){
+        router?.showErrorMessage(title: title, message: message)
     }
 }

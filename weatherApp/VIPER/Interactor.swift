@@ -36,8 +36,10 @@ class Interactor {
                 print(weatherModel)
             case .failure(let error):
                 print("Error \(error.localizedDescription)")
+                self.presenter?.showErrorMessage(title: "Error", message: "\(error.localizedDescription)")
             }
             
         })
-}
+    }
+    
 }

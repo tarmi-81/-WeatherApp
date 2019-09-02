@@ -38,7 +38,7 @@ struct WeatherModel: Codable {
             return "001lighticons-2"
             
         default :
-            return "001lighticons-1"
+            return "001lighticons-13"
         }
     }
 }
