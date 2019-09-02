@@ -39,7 +39,7 @@ class NetworkManger {
         urlComponents.queryItems = [ queryItemUnits, queryItemToken]
         return urlComponents
     }()
-    func getWeatherDataByCity(city: String, completion: ((Result<WeatherStruct>) -> Void)?) {
+    func getWeatherDataByCity(city: String, completion: ((Result<WeatherModel>) -> Void)?) {
         var urlComponents = self.getBaseComponent
         urlComponents.queryItems?.append(URLQueryItem(name: ParamsName.city, value: city))
         getWeather(urlComponents: urlComponents, completion: completion)

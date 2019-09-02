@@ -7,3 +7,32 @@
 //
 
 import Foundation
+import UIKit
+
+class Router {
+    var vc: WeatherViewController = WeatherViewController()
+    let presenter = Presenter()
+    let interactor = Interactor()
+    var navigationController: UINavigationController?
+    
+    init() {
+        
+        vc = initView()
+        presenter.interactor = interactor
+        presenter.router = self
+        interactor.presenter = presenter
+        
+        navigationController = UINavigationController(rootViewController: vc)
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    func initView() -> WeatherViewController {
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let vc:WeatherViewController = storyBoard.instantiateViewController(withIdentifier: "WeatherViewController") as! WeatherViewController
+        
+        vc.presenter = self.presenter
+        self.presenter.view = vc
+        
+        return vc
+    }
+}
