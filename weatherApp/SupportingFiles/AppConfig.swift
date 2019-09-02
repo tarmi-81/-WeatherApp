@@ -15,25 +15,30 @@ public struct AppConfig: Codable {
     
     public let defaultCity: String
     public let defaultCountry: String
+    public let defaultUnit: String
     
     public init(
         city:  String  = "Kosice",
-        country: String = "SK"
+        country: String = "",
+        unit: String = ""
         ){
         self.defaultCity = city
         self.defaultCountry = country
+        self.defaultUnit = unit
     }
     public enum CodingKeys: String, CodingKey {
         case
         defaultCity = "DefaultCity",
-        defaultCountry = "SK"
+        defaultCountry = "DefaultCountry",
+        defaultUnit  = "DefaultUnit"
     }
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         let defaultCity: String = container.contains(.defaultCity) ? try container.decode(String.self, forKey: .defaultCity) : "Kosice"
-         let defaultCountry: String = container.contains(.defaultCountry) ? try container.decode(String.self, forKey: .defaultCountry) : "SK"
-        self.init(city: defaultCity, country: defaultCountry)
+         let defaultCountry: String = container.contains(.defaultCountry) ? try container.decode(String.self, forKey: .defaultCountry) : ""
+         let defaultUnit: String = container.contains(.defaultUnit) ? try container.decode(String.self, forKey: .defaultUnit) : ""
+        self.init(city: defaultCity, country: defaultCountry, unit: defaultUnit)
     }
     
 }
@@ -49,8 +54,9 @@ extension AppConfig {
         do {
             let data = try Data(contentsOf: configURL)
             self = try PropertyListDecoder().decode(AppConfig.self, from: data)
-            print("--- Loaded: \(name).plist ------------------")
-            print("--------------------------------------------")
+            debugPrint("--- Loaded: \(name).plist ------------------")
+            debugPrint(self)
+            debugPrint("--------------------------------------------")
         } catch {
             assertionFailure("Warning: Failed parsing of \(name).plist config file:\n\(error)")
             return nil

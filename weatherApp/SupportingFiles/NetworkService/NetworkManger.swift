@@ -51,17 +51,16 @@ class NetworkManger {
         request.allHTTPHeaderFields = headers
         
         AF.request(request).responseJSON { response in
-            guard response.error == nil else { print("ERROR: - \(String(describing: response.error))"); return}
-            print(response)
+            guard response.error == nil else { debugPrint("ERROR: - \(String(describing: response.error))"); return}
+            //print(response)
             guard let jsonData = response.data else { return }
-            print(jsonData)
+            debugPrint(jsonData)
             let decoder = JSONDecoder()
             do {
                 let decodedData = try decoder.decode(T.self, from: jsonData)
                 completion?(.success(decodedData))
             } catch {
                 completion?(.failure(error))
-                print(error.localizedDescription)
             }
         }
         

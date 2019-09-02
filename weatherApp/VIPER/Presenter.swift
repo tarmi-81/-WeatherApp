@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class Presenter: InteractorProtocolOutput {
+    let defaultImage = "001lighticons-13"
     var view: WeatherViewController?
     var interactor:Interactor?
     var router: Router?
@@ -20,17 +21,17 @@ class Presenter: InteractorProtocolOutput {
         guard let view = self.view else { return }
         view.errorLabel!.layer.opacity = 0
         
-        view.tempLabel.text = "--℃"
+        view.tempLabel.text = "--"
         view.cityLabel.text = "Updating..."
-        view.weatherIcon.image = UIImage(named: "001lighticons-13")
+        view.weatherIcon.image = UIImage(named: defaultImage)
     }
     
     func updateWeather(model: WeatherModel) {
         guard let view = self.view else { return }
-        view.tempLabel.text = Int(model.main.temp).description + "℃"
+        view.tempLabel.text = Int(model.main.temp).description + AppConfig.shared.defaultUnit
         view.cityLabel.text = model.name
         guard let currentWeather = model.weather.first else {
-            view.weatherIcon.image = UIImage(named: "001lighticons-13")
+            view.weatherIcon.image = UIImage(named: defaultImage)
             return
         }
         view.weatherIcon.image  = UIImage(named: model.updateWeatherIcon(weatherID: currentWeather.id))
