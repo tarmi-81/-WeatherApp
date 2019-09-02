@@ -28,13 +28,15 @@ class ViewController: UIViewController {
     }
     func setupViews() {
         errorLabel.layer.opacity = 0
-        weatherIcon.image = UIImage(named: "Cloud-Refresh")
+
         tempLabel.text = "--℃"
         cityLabel.text = "Updating..."
+        weatherIcon.image = UIImage(named: "001lighticons-1")
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
         updateCityInfo(city: "Kosice")
     }
     func updateCityInfo(city: String){
@@ -55,6 +57,11 @@ class ViewController: UIViewController {
     func updateWeatherInfo(info: WeatherStruct) {
         tempLabel.text = Int(info.main.temp).description + "℃"
         cityLabel.text = info.name
+        guard let currentWeather = info.weather.first else {
+            weatherIcon.image = UIImage(named: "001lighticons-1")
+            return
+        }
+        weatherIcon.image  = UIImage(named: info.updateWeatherIcon(condition: currentWeather.id))
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -64,4 +71,3 @@ class ViewController: UIViewController {
     }
 
 }
-
