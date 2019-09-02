@@ -36,6 +36,7 @@ class Presenter: InteractorProtocolOutput {
         view.weatherIcon.image  = UIImage(named: model.updateWeatherIcon(weatherID: currentWeather.id))
     }
     func searchWeather(city: String){
+        
         interactor!.updateCityInfo(city: city)
     }
 }

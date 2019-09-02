@@ -12,6 +12,7 @@ struct WeatherModel: Codable {
     var name: String
     var main: MainData
     var weather: [WeatherData]
+    
     func updateWeatherIcon(weatherID: Int) -> String {
         
         switch weatherID {

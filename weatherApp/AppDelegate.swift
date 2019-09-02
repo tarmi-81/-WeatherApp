@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        guard let config = AppConfig(fromPlistNamed: "AppConfig") else { return true }
+        AppConfig.shared = config
         let routing = Router()
         
         self.window = UIWindow()

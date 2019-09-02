@@ -24,7 +24,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var searchText: UITextField!
     
     @IBAction func SearchButtonClick(_ sender: Any) {
-        presenter?.searchWeather(city: searchText.text ?? "Kosice")
+        presenter?.searchWeather(city: searchText.text ?? "" )
     }
     
     override func viewDidLoad() {

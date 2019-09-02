@@ -37,11 +37,8 @@ extension WeatherData: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         // extracting the data
         let id: Int = container.contains(.id) ? try container.decode(Int.self, forKey: .id) : -1
-        
         let icon: String = container.contains(.icon) ? try container.decode(String.self, forKey: .icon) : ""
-        
         let main: String = container.contains(.main) ? try container.decode(String.self, forKey: .main) : ""
-        
         let description: String = container.contains(.description) ? try container.decode(String.self, forKey: .description) : ""
         
         self.init(id: id,

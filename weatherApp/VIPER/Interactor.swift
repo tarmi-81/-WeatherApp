@@ -20,10 +20,14 @@ class Interactor {
     var dataModel: WeatherModel?
     
     init() {
-        updateCityInfo(city: "Kosice,SK")
+        updateCityInfo(city: "")
     }
     func updateCityInfo(city: String){
-        NetworkManger.shared.getWeatherDataByCity(city: city, completion: { (result) in
+        var searchCity = city
+        if searchCity == "" {
+            searchCity = AppConfig.shared.defaultCity + "," + AppConfig.shared.defaultCountry
+        }
+        NetworkManger.shared.getWeatherDataByCity(city: searchCity, completion: { (result) in
             
             switch result {
             case .success(let weatherModel):
