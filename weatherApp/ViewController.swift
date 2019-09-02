@@ -61,7 +61,7 @@ class ViewController: UIViewController {
             weatherIcon.image = UIImage(named: "001lighticons-1")
             return
         }
-        weatherIcon.image  = UIImage(named: info.updateWeatherIcon(condition: currentWeather.id))
+        weatherIcon.image  = UIImage(named: info.updateWeatherIcon(weatherID: currentWeather.id))
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

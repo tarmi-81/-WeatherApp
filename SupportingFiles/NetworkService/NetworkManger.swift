@@ -52,6 +52,7 @@ class NetworkManger {
         
         AF.request(request).responseJSON { response in
             guard response.error == nil else { print("ERROR: - \(String(describing: response.error))"); return}
+            print(response)
             guard let jsonData = response.data else { return }
             print(jsonData)
             let decoder = JSONDecoder()
