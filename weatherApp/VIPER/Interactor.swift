@@ -12,7 +12,7 @@ protocol InteractorProtocolInput {
     func searchCity(name:String)
 }
 protocol InteractorProtocolOutput {
-    func updateWeather(model: WeatherModel)
+    func updateWeather()
 }
 
 class Interactor {
@@ -22,6 +22,10 @@ class Interactor {
     init() {
         updateCityInfo(city: "")
     }
+    func show(_ error: Error) {
+         self.presenter?.showErrorMessage(title: "Error", message: "\(error.localizedDescription)")
+    }
+    
     func updateCityInfo(city: String){
         var searchCity = city
         if searchCity == "" {
@@ -32,7 +36,7 @@ class Interactor {
             switch result {
             case .success(let weatherModel):
                 self.dataModel = weatherModel
-                self.presenter!.updateWeather(model: self.dataModel!)
+                self.presenter!.updateWeather()
                 print(weatherModel)
             case .failure(let error):
                 print("Error \(error.localizedDescription)")
@@ -41,5 +45,4 @@ class Interactor {
             
         })
     }
-    
 }

@@ -39,13 +39,15 @@ class NetworkManger {
         urlComponents.queryItems = [ queryItemUnits, queryItemToken]
         return urlComponents
     }()
+    
     func getWeatherDataByCity(city: String, completion: ((Result<WeatherModel>) -> Void)?) {
         var urlComponents = self.getBaseComponent
         urlComponents.queryItems?.append(URLQueryItem(name: ParamsName.city, value: city))
         getWeather(urlComponents: urlComponents, completion: completion)
     }
+    
     private func getWeather<T: Decodable>(urlComponents: URLComponents , completion: ((Result<T>) -> Void)?) {
-       
+        
         guard let url = urlComponents.url else { return }
         var request = URLRequest(url: url)
         request.allHTTPHeaderFields = headers

@@ -8,11 +8,6 @@
 
 import UIKit
 
-// kladanie default mesta do defaults
-
-// mapovanie rx na UI 
-
-
 class WeatherViewController: UIViewController {
     var presenter:Presenter?
    
