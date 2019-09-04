@@ -28,11 +28,6 @@ protocol WeatherViewModelType {
 }
 
 final class WeatherViewModel: WeatherViewModelInputs, WeatherViewModelOutputs, WeatherViewModelType {
-//    func nextButtonPressed() {
-//        <#code#>
-//    }
-    
-    
     
     var inputs: WeatherViewModelInputs { return self }
     var outputs: WeatherViewModelOutputs { return self }
@@ -41,7 +36,6 @@ final class WeatherViewModel: WeatherViewModelInputs, WeatherViewModelOutputs, W
     var temp: Driver<String>?
     var image: Driver<UIImage>?
     
-    var dataModel:WeatherModel?
     var interactor: Interactor
     
     init?(interactor: Interactor){
@@ -55,22 +49,21 @@ final class WeatherViewModel: WeatherViewModelInputs, WeatherViewModelOutputs, W
                 self.interactor.show($0)
               })
         
-        
-        
         self.name = model
             .map {$0.name}
             .asDriver(onErrorJustReturn: "--")
             .startWith("--")
         
         self.temp =  model
-            .map{$0.main}
-            .map{return String($0.temp) + AppConfig.shared.defaultUnit }
+            .map{ $0.main.temp }
+            .map{ String(Int($0)) }
+            .map{ return $0 + AppConfig.shared.defaultUnit }
             .asDriver(onErrorJustReturn: "--")
             .startWith("--" + AppConfig.shared.defaultUnit)
         
         self.image = model
             .map{ $0.updateWeatherIcon(weatherID:$0.weather.first!.id) }
-            .map{UIImage(named: String($0))!}
+            .map{ UIImage(named: String($0))! }
             .asDriver(onErrorJustReturn: UIImage(named: "001lighticons-13")!)
             .startWith(UIImage(named: "001lighticons-13")!)
         

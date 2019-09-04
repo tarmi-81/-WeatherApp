@@ -41,7 +41,7 @@ class Presenter //InteractorProtocolOutput
     
     
     func startLoading(){
-    // sow spiner 
+    // show spiner 
     }
     
     func searchWeather(city: String){

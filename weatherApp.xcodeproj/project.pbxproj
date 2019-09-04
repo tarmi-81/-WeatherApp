@@ -88,6 +88,7 @@
 			children = (
 				532B55B9231C0E02004CD0AA /* Model */,
 				530FB817231D9807006531E8 /* Router.swift */,
+				534780A9232041A500187D6D /* WeatherViewModel.swift */,
 				530FB819231D982D006531E8 /* Interactor.swift */,
 				530FB81B231D987F006531E8 /* Presenter.swift */,
 			);
@@ -150,7 +151,6 @@
 			children = (
 				530FB814231D94B1006531E8 /* Entity */,
 				532B55BA231C0E90004CD0AA /* WeatherModel.swift */,
-				534780A9232041A500187D6D /* WeatherViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

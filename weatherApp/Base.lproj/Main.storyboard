@@ -54,7 +54,7 @@
                                     <action selector="SearchButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Aj-P5-Z9J"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went wrong..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QT9-O1-uTi">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went wrong..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QT9-O1-uTi">
                                 <rect key="frame" x="32" y="573" width="350" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="PvA-4E-adG"/>

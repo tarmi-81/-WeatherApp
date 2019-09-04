@@ -11,9 +11,6 @@ import Foundation
 protocol InteractorProtocolInput {
     func searchCity(name:String)
 }
-//protocol InteractorProtocolOutput {
-////    func updateWeather()
-//}
 
 class Interactor {
     var presenter: Presenter?
