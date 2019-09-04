@@ -19,10 +19,13 @@ protocol WeatherViewModelInputs {
 protocol WeatherViewModelOutputs {
    
     var name: Driver<String>? { get }
+    var temp: Driver<String>? { get }
+     var image: Driver<UIImage>? { get }
 }
 protocol WeatherViewModelType {
     var inputs: WeatherViewModelInputs { get }
     var outputs: WeatherViewModelOutputs { get }
+    func updateWeather(interactor: Interactor)
 }
 
 final class WeatherViewModel: WeatherViewModelInputs, WeatherViewModelOutputs, WeatherViewModelType {
@@ -35,23 +38,45 @@ final class WeatherViewModel: WeatherViewModelInputs, WeatherViewModelOutputs, W
     func nextButtonPressed() {
         nextButtonPressedSubject.onNext(())
     }
-    let name: Driver<String>?
-    public let model : PublishSubject<WeatherModel> = PublishSubject()
+    var name: Driver<String>?
+    var temp: Driver<String>?
+    var image: Driver<UIImage>?
+
+    var dataModel:WeatherModel?
     
     init?(interactor: Interactor){
-        guard interactor.dataModel != nil else {return nil}
-        self.model.onNext(interactor.dataModel)
-        let tmp = BehaviorRelay<String>(value: interactor.dataModel!.name)
-        self.name =  tmp
-                    .asDriver()
-                    .startWith("")
-        
-        
-        
-        
+        self.updateWeather(interactor: interactor)
+    
+
         
     }
-   
+  public   func updateWeather(interactor: Interactor){
+        guard interactor.dataModel != nil else {return}
+        self.dataModel = interactor.dataModel
+        let nameValue = BehaviorRelay<String>(value: self.dataModel!.name)
+        let mainData = BehaviorRelay<MainData>(value: self.dataModel!.main)
+        let weatherData = BehaviorRelay<[WeatherData]>(value: self.dataModel!.weather)
+        self.name =  nameValue
+            .asDriver()
+            .startWith("")
+
+        self.temp =  mainData
+            .map{return String($0.temp) + AppConfig.shared.defaultUnit }
+            .asDriver(onErrorJustReturn: "--")
+            .startWith("--" + AppConfig.shared.defaultUnit)
+
+        self.image = weatherData
+            .map{
+                $0.first!.id }
+            .map{  self.dataModel!.updateWeatherIcon(weatherID:$0)}
+            .map{
+                UIImage(named: String($0))!}
+
+            .asDriver(onErrorJustReturn: UIImage(named: "001lighticons-13")!)
+            .startWith(UIImage(named: "001lighticons-13")!)
+
+
+    }
    
 }
 

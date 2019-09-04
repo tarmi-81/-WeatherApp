@@ -36,7 +36,7 @@ class Interactor {
             switch result {
             case .success(let weatherModel):
                 self.dataModel = weatherModel
-                self.presenter!.updateWeather()
+                self.updateWeather()
                 print(weatherModel)
             case .failure(let error):
                 print("Error \(error.localizedDescription)")
@@ -44,5 +44,9 @@ class Interactor {
             }
             
         })
+    }
+    func updateWeather(){
+        guard self.presenter != nil else {return}
+       self.presenter?.updateWeather()
     }
 }

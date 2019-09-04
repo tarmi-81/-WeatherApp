@@ -25,25 +25,22 @@ class Presenter: InteractorProtocolOutput {
     func setupView() {
          viewModel = WeatherViewModel(interactor: interactor!)
         guard let view = self.view else { return }
-//        view.errorLabel.rx.text
-//
-//        view.tempLabel.text = "--"
-//        view.cityLabel.text = "Updating..."
-//        view.weatherIcon.image = UIImage(named: defaultImage)
+
+        viewModel?.outputs.name?
+            .drive(view.cityLabel.rx.text)
+            .disposed(by: bag)
+
+        viewModel?.outputs.temp?
+            .drive(view.tempLabel.rx.text)
+            .disposed(by: bag)
+        viewModel?.outputs.image?
+            .drive(view.weatherIcon.rx.image)
+            .disposed(by: bag)
     }
     
     func updateWeather() {
-        guard let view = self.view else { return }
-        viewModel?.outputs.name?
-            .drive(view.tempLabel.rx.text)
-            .disposed(by: bag)
-         // Int(model.main.temp).description + AppConfig.shared.defaultUnit
-//        view.cityLabel.text = model.name
-//        guard let currentWeather = model.weather.first else {
-//            view.weatherIcon.image = UIImage(named: defaultImage)
-//            return
-//        }
-//        view.weatherIcon.image  = UIImage(named: model.updateWeatherIcon(weatherID: currentWeather.id))
+        self.viewModel?.updateWeather(interactor: self.interactor!)
+
     }
     
     func startLoading(){
