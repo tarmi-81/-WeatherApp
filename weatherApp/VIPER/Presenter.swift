@@ -44,7 +44,7 @@ class Presenter: InteractorProtocolOutput {
     }
     
     func startLoading(){
-        setupView()
+        //setupView()
     }
     
     func searchWeather(city: String){

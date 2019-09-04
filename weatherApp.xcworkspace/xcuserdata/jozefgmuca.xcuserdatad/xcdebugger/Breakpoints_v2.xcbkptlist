@@ -121,14 +121,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "weatherApp/VIPER/Interactor.swift"
-            timestampString = "589239881.9486901"
+            filePath = "weatherApp/VIPER/Presenter.swift"
+            timestampString = "589317720.831817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "updateCityInfo(city:)"
-            landmarkType = "7">
+            startingLineNumber = "60"
+            endingLineNumber = "60">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -137,12 +135,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "weatherApp/VIPER/Presenter.swift"
-            timestampString = "589239881.948771"
+            filePath = "weatherApp/VIPER/Router.swift"
+            timestampString = "589317720.831944"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "init()"
             landmarkType = "7">
          </BreakpointContent>
@@ -153,13 +151,166 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "weatherApp/VIPER/Presenter.swift"
-            timestampString = "589239881.948826"
+            filePath = "weatherApp/Views/WeatherViewController.swift"
+            timestampString = "589317720.832016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "updateWeather()"
+            startingLineNumber = "50"
+            endingLineNumber = "50">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "weatherApp/VIPER/Model/WeatherModel.swift"
+            timestampString = "589317720.832171"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "updateWeatherIcon(weatherID:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "weatherApp.WeatherModel.updateWeatherIcon(weatherID: Swift.Int) -&gt; Swift.String"
+                  moduleName = "weatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jozefgmuca/Projekty/WeatherAppDemo/weatherApp/VIPER/Model/WeatherModel.swift"
+                  timestampString = "589317547.567577"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "weatherApp.WeatherModel.updateWeatherIcon(weatherID: Swift.Int) -&gt; Swift.String"
+                  moduleName = "weatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jozefgmuca/Projekty/WeatherAppDemo/weatherApp/VIPER/Model/WeatherModel.swift"
+                  timestampString = "589317547.570755"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "299">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "weatherApp.WeatherModel.updateWeatherIcon(weatherID: Swift.Int) -&gt; Swift.String"
+                  moduleName = "weatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jozefgmuca/Projekty/WeatherAppDemo/weatherApp/VIPER/Model/WeatherModel.swift"
+                  timestampString = "589317547.573651"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "417">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "weatherApp.WeatherModel.updateWeatherIcon(weatherID: Swift.Int) -&gt; Swift.String"
+                  moduleName = "weatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jozefgmuca/Projekty/WeatherAppDemo/weatherApp/VIPER/Model/WeatherModel.swift"
+                  timestampString = "589317547.576458"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "535">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "weatherApp.WeatherModel.updateWeatherIcon(weatherID: Swift.Int) -&gt; Swift.String"
+                  moduleName = "weatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jozefgmuca/Projekty/WeatherAppDemo/weatherApp/VIPER/Model/WeatherModel.swift"
+                  timestampString = "589317547.579219"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "653">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "weatherApp.WeatherModel.updateWeatherIcon(weatherID: Swift.Int) -&gt; Swift.String"
+                  moduleName = "weatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jozefgmuca/Projekty/WeatherAppDemo/weatherApp/VIPER/Model/WeatherModel.swift"
+                  timestampString = "589317547.584445"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "783">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "weatherApp.WeatherModel.updateWeatherIcon(weatherID: Swift.Int) -&gt; Swift.String"
+                  moduleName = "weatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jozefgmuca/Projekty/WeatherAppDemo/weatherApp/VIPER/Model/WeatherModel.swift"
+                  timestampString = "589317547.587051"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "916">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "weatherApp/VIPER/Presenter.swift"
+            timestampString = "589317720.832242"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "showErrorMessage(title:message:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "weatherApp/VIPER/Presenter.swift"
+            timestampString = "589317720.8323261"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "setupView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -170,45 +321,93 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "weatherApp/VIPER/Model/WeatherModel.swift"
-            timestampString = "589239881.948879"
+            timestampString = "589317720.832392"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "updateWeatherIcon(weatherID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "weatherApp/VIPER/Interactor.swift"
+            timestampString = "589317720.832471"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "updateWeather()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "weatherApp/VIPER/Interactor.swift"
+            timestampString = "589317720.832526"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "updateCityInfo(city:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "weatherApp/SupportingFiles/NetworkService/NetworkManger.swift"
+            timestampString = "589317720.832584"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "NetworkManger"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "weatherApp/VIPER/Model/WeatherViewModel.swift"
+            timestampString = "589317720.832638"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "init(interactor:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "weatherApp.WeatherViewModel.init(interactor: weatherApp.Interactor) -&gt; Swift.Optional&lt;weatherApp.WeatherViewModel&gt;"
-                  moduleName = "weatherApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jozefgmuca/Projekty/WeatherAppDemo/weatherApp/VIPER/Model/WeatherModel.swift"
-                  timestampString = "589239882.265332"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "782">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "weatherApp.WeatherViewModel.init(interactor: weatherApp.Interactor) -&gt; Swift.Optional&lt;weatherApp.WeatherViewModel&gt;"
-                  moduleName = "weatherApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jozefgmuca/Projekty/WeatherAppDemo/weatherApp/VIPER/Model/WeatherModel.swift"
-                  timestampString = "589239882.268301"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "1493">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "weatherApp/VIPER/Presenter.swift"
+            timestampString = "589317720.833027"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "startLoading()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

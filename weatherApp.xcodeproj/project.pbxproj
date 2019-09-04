@@ -24,6 +24,7 @@
 		532B55B4231BF6AD004CD0AA /* NetworkManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532B55B3231BF6AD004CD0AA /* NetworkManger.swift */; };
 		532B55B8231BFACD004CD0AA /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 532B55B7231BFACD004CD0AA /* Podfile */; };
 		532B55BB231C0E90004CD0AA /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532B55BA231C0E90004CD0AA /* WeatherModel.swift */; };
+		534780AA232041A500187D6D /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534780A9232041A500187D6D /* WeatherViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		532B55B3231BF6AD004CD0AA /* NetworkManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManger.swift; sourceTree = "<group>"; };
 		532B55B7231BFACD004CD0AA /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		532B55BA231C0E90004CD0AA /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		534780A9232041A500187D6D /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		F619D229ADEFBE9957AB6305 /* Pods-weatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weatherApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weatherApp/Pods-weatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 			children = (
 				530FB814231D94B1006531E8 /* Entity */,
 				532B55BA231C0E90004CD0AA /* WeatherModel.swift */,
+				534780A9232041A500187D6D /* WeatherViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				530FB818231D9807006531E8 /* Router.swift in Sources */,
+				534780AA232041A500187D6D /* WeatherViewModel.swift in Sources */,
 				532B55B4231BF6AD004CD0AA /* NetworkManger.swift in Sources */,
 				532B55A3231BF396004CD0AA /* WeatherViewController.swift in Sources */,
 				530FB81A231D982D006531E8 /* Interactor.swift in Sources */,

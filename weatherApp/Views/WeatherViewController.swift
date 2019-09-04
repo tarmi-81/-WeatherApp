@@ -19,14 +19,25 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var searchText: UITextField!
-     // private let bag = DisposeBag()
+    private let bag = DisposeBag()
+    var viewModel: WeatherViewModelType?
     @IBAction func SearchButtonClick(_ sender: Any) {
         presenter?.searchWeather(city: searchText.text ?? "" )
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.setupView()
+        viewModel = WeatherViewModel(interactor: self.presenter!.interactor!)
+        viewModel?.outputs.name?
+            .drive(cityLabel.rx.text)
+            .disposed(by: bag)
+        
+        viewModel?.outputs.temp?
+            .drive(tempLabel.rx.text)
+            .disposed(by: bag)
+        viewModel?.outputs.image?
+            .drive(weatherIcon.rx.image)
+            .disposed(by: bag)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

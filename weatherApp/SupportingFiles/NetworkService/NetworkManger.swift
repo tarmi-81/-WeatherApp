@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+import RxAlamofire
 import Alamofire
 
 class NetworkManger {
@@ -26,8 +29,26 @@ class NetworkManger {
         static let units = "units"
         static let apiID  = "appid"
     }
+  public   let weatherModel = PublishSubject<WeatherModel>()
+    let errorAlertController = PublishSubject<UIAlertController>()
     
+    private var weather:WeatherModel? {
+        didSet {
+            updateModel()
+        }
+    }
     
+    private func updateModel() {
+        if let weather = weather {
+            self.weatherModel.on(.next(weather))
+            
+            //            if let temp = weather?.temp {
+            //                self.temp.on(.next("\(temp)°C"))
+            //            }
+        }
+    }
+    
+    private let bag = DisposeBag()
     
     lazy private var getBaseComponent: URLComponents = {
         var urlComponents = URLComponents()
@@ -41,32 +62,67 @@ class NetworkManger {
     }()
     
     func getWeatherDataByCity(city: String, completion: ((Result<WeatherModel>) -> Void)?) {
-        var urlComponents = self.getBaseComponent
-        urlComponents.queryItems?.append(URLQueryItem(name: ParamsName.city, value: city))
-        getWeather(urlComponents: urlComponents, completion: completion)
+//        var urlComponents = self.getBaseComponent
+//        urlComponents.queryItems?.append(URLQueryItem(name: ParamsName.city, value: city))
+        getWeather(city: city)
     }
     
-    private func getWeather<T: Decodable>(urlComponents: URLComponents , completion: ((Result<T>) -> Void)?) {
-        
+    
+    private func getWeather(city: String) {
+        var urlComponents = self.getBaseComponent
+        urlComponents.queryItems?.append(URLQueryItem(name: ParamsName.city, value: city))
         guard let url = urlComponents.url else { return }
         var request = URLRequest(url: url)
         request.allHTTPHeaderFields = headers
         
-        AF.request(request).responseJSON { response in
-            guard response.error == nil else { debugPrint("ERROR: - \(String(describing: response.error))"); return}
-            //print(response)
-            guard let jsonData = response.data else { return }
-            debugPrint(jsonData)
-            let decoder = JSONDecoder()
-            do {
-                let decodedData = try decoder.decode(T.self, from: jsonData)
-                completion?(.success(decodedData))
-            } catch {
-                completion?(.failure(error))
-            }
-        }
-        
+        Alamofire.request(url).rx.responseJSON()
+            .observeOn(MainScheduler.instance)
+            .subscribe(
+                onNext: { response in
+//                    if let data = response.data {
+                        guard let jsonData = response.data else { return }
+                                    debugPrint(jsonData)
+                                    let decoder = JSONDecoder()
+                                    do {
+                                        let decodedData = try decoder.decode(WeatherModel.self, from: jsonData)
+                                         self.weather = decodedData
+                                        print(self.weather)
+                                    } catch {
+                                      //  completion?(.failure(error))
+                                    }
+                       
+//                    }
+            },
+                onError: { error in
+                    print("Got error")
+                    let gotError = error as NSError
+                    print(gotError.domain)
+                   // self.postError(title: "\(gotError.code)", message: gotError.domain)
+            })
+            .disposed(by: bag)
     }
+    
+//    private func getWeather<T: Decodable>(urlComponents: URLComponents , completion: ((Result<T>) -> Void)?) {
+//
+//        guard let url = urlComponents.url else { return }
+//        var request = URLRequest(url: url)
+//        request.allHTTPHeaderFields = headers
+//
+//        AF.request(request).responseJSON { response in
+//            guard response.error == nil else { debugPrint("ERROR: - \(String(describing: response.error))"); return}
+//            //print(response)
+//            guard let jsonData = response.data else { return }
+//            debugPrint(jsonData)
+//            let decoder = JSONDecoder()
+//            do {
+//                let decodedData = try decoder.decode(T.self, from: jsonData)
+//                completion?(.success(decodedData))
+//            } catch {
+//                completion?(.failure(error))
+//            }
+//        }
+//
+//    }
     
     enum Result<Value> {
         case success(Value)
