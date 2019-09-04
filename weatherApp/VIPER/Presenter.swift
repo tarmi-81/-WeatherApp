@@ -11,7 +11,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class Presenter: InteractorProtocolOutput {
+class Presenter //InteractorProtocolOutput
+{
     let defaultImage = "001lighticons-13"
     var view: WeatherViewController?
     var interactor:Interactor?
@@ -38,13 +39,9 @@ class Presenter: InteractorProtocolOutput {
             .disposed(by: bag)
     }
     
-    func updateWeather() {
-        self.viewModel?.updateWeather(interactor: self.interactor!)
-
-    }
     
     func startLoading(){
-        //setupView()
+    // sow spiner 
     }
     
     func searchWeather(city: String){

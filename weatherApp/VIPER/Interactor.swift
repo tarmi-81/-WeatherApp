@@ -11,9 +11,9 @@ import Foundation
 protocol InteractorProtocolInput {
     func searchCity(name:String)
 }
-protocol InteractorProtocolOutput {
-    func updateWeather()
-}
+//protocol InteractorProtocolOutput {
+////    func updateWeather()
+//}
 
 class Interactor {
     var presenter: Presenter?
@@ -31,22 +31,6 @@ class Interactor {
         if searchCity == "" {
             searchCity = AppConfig.shared.defaultCity + "," + AppConfig.shared.defaultCountry
         }
-        NetworkManger.shared.getWeatherDataByCity(city: searchCity, completion: { (result) in
-            
-            switch result {
-            case .success(let weatherModel):
-                self.dataModel = weatherModel
-                self.updateWeather()
-                print(weatherModel)
-            case .failure(let error):
-                print("Error \(error.localizedDescription)")
-                self.presenter?.showErrorMessage(title: "Error", message: "\(error.localizedDescription)")
-            }
-            
-        })
-    }
-    func updateWeather(){
-        guard self.presenter != nil else {return}
-       self.presenter?.updateWeather()
+        NetworkManger.shared.getWeatherDataByCity(city: searchCity)
     }
 }
