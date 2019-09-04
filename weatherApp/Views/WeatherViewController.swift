@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class WeatherViewController: UIViewController {
     var presenter:Presenter?
@@ -17,7 +19,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var searchText: UITextField!
-    
+     // private let bag = DisposeBag()
     @IBAction func SearchButtonClick(_ sender: Any) {
         presenter?.searchWeather(city: searchText.text ?? "" )
     }

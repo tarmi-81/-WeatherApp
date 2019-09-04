@@ -50,7 +50,7 @@ final class WeatherViewModel: WeatherViewModelInputs, WeatherViewModelOutputs, W
 
         
     }
-  public   func updateWeather(interactor: Interactor){
+  public func updateWeather(interactor: Interactor){
         guard interactor.dataModel != nil else {return}
         self.dataModel = interactor.dataModel
         let nameValue = BehaviorRelay<String>(value: self.dataModel!.name)

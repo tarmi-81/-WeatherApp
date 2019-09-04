@@ -48,8 +48,9 @@ class Presenter: InteractorProtocolOutput {
     }
     
     func searchWeather(city: String){
-        startLoading()
+
         interactor!.updateCityInfo(city: city)
+         startLoading()
     }
     
     func showErrorMessage(title: String, message: String){
