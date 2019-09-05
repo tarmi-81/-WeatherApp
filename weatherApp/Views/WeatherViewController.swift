@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 import RxSwift
 import RxCocoa
 
@@ -21,21 +22,25 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var searchText: UITextField!
     private let bag = DisposeBag()
     var viewModel: WeatherViewModelType?
-    @IBAction func SearchButtonClick(_ sender: Any) {
-        presenter?.searchWeather(city: searchText.text ?? "" )
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = WeatherViewModel(interactor: self.presenter!.interactor!)
-        viewModel?.outputs.name?
+         guard let viewModel = WeatherViewModel(interactor: self.presenter!.interactor!) else { return }
+      // inputs
+        searchButton.rx.tap
+            .bind{ _ in
+                viewModel.inputs.searchButtonPressed(self.searchText.text ?? "")
+        }
+        .disposed(by: bag)
+        // outputs 
+        viewModel.outputs.name?
             .drive(cityLabel.rx.text)
             .disposed(by: bag)
         
-        viewModel?.outputs.temp?
+        viewModel.outputs.temp?
             .drive(tempLabel.rx.text)
             .disposed(by: bag)
-        viewModel?.outputs.image?
+        viewModel.outputs.image?
             .drive(weatherIcon.rx.image)
             .disposed(by: bag)
     }

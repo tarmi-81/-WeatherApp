@@ -11,7 +11,6 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-
 struct WeatherModel: Codable {
     var name: String 
     var main: MainData
@@ -46,8 +45,3 @@ struct WeatherModel: Codable {
         }
     }
 }
-
-
-
-
-

@@ -38,18 +38,7 @@ class Presenter //InteractorProtocolOutput
             .drive(view.weatherIcon.rx.image)
             .disposed(by: bag)
     }
-    
-    
-    func startLoading(){
-    // show spiner 
-    }
-    
-    func searchWeather(city: String){
 
-        interactor!.updateCityInfo(city: city)
-         startLoading()
-    }
-    
     func showErrorMessage(title: String, message: String){
         router?.showErrorMessage(title: title, message: message)
     }

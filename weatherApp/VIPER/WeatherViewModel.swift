@@ -12,8 +12,7 @@ import RxSwift
 import RxCocoa
 
 protocol WeatherViewModelInputs {
-    //func nextButtonPressed()
-    
+     func searchButtonPressed(_ searchText: String)
 }
 
 protocol WeatherViewModelOutputs {
@@ -28,21 +27,26 @@ protocol WeatherViewModelType {
 }
 
 final class WeatherViewModel: WeatherViewModelInputs, WeatherViewModelOutputs, WeatherViewModelType {
-    
+
     var inputs: WeatherViewModelInputs { return self }
     var outputs: WeatherViewModelOutputs { return self }
     
     var name: Driver<String>?
     var temp: Driver<String>?
     var image: Driver<UIImage>?
-    
+    let searchTextSubject = PublishSubject<String?>()
     var interactor: Interactor
-    
+
+    private let searchButtonPressedSubject = PublishSubject<String?>()
+    func searchButtonPressed(_ searchText: String) {
+        searchButtonPressedSubject.onNext(searchText)
+    }
+
     init?(interactor: Interactor){
         self.interactor = interactor
         let model = NetworkManger.shared.weatherModel
         let errorHandling = NetworkManger.shared.errorSubject
-       
+
         
         _ = errorHandling
               .subscribe(onNext: {
@@ -66,7 +70,17 @@ final class WeatherViewModel: WeatherViewModelInputs, WeatherViewModelOutputs, W
             .map{ UIImage(named: String($0))! }
             .asDriver(onErrorJustReturn: UIImage(named: "001lighticons-13")!)
             .startWith(UIImage(named: "001lighticons-13")!)
-        
-        
+
+       _ = searchButtonPressedSubject
+            .subscribe(onNext: { searchText in
+               self.interactor.updateCityInfo(city: searchText ?? "")
+            })
+
     }
+
+    func serachTextChanged(_ text: String) {
+         self.searchTextSubject.on(.next(text))
+
+    }
+
 }
