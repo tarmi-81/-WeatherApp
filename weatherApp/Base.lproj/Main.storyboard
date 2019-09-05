@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25℃" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCC-GF-MwG">
-                                <rect key="frame" x="32" y="421" width="350" height="82"/>
+                                <rect key="frame" x="127.5" y="421" width="159.5" height="82"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="82" id="R7a-8C-bns"/>
                                 </constraints>
@@ -27,7 +27,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New York" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilP-BG-oo6">
-                                <rect key="frame" x="32" y="511" width="350" height="29"/>
+                                <rect key="frame" x="159" y="511" width="96" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="WuS-8e-fPL"/>
                                 </constraints>
@@ -45,14 +45,16 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAV-hq-Lqh">
                                 <rect key="frame" x="262" y="107" width="92" height="30"/>
+                                <color key="backgroundColor" red="0.24354103207588196" green="0.47958666086196899" blue="0.99902266263961792" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="92" id="541-Dw-D8O"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="92" id="541-Dw-D8O"/>
                                     <constraint firstAttribute="height" constant="30" id="ze4-AA-NOG"/>
                                 </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="search"/>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went wrong..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QT9-O1-uTi">
-                                <rect key="frame" x="32" y="573" width="350" height="27"/>
+                                <rect key="frame" x="94.5" y="573" width="225.5" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="PvA-4E-adG"/>
                                 </constraints>
@@ -70,25 +72,26 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qto-Ex-11f" firstAttribute="trailing" secondItem="ilP-BG-oo6" secondAttribute="trailing" constant="32" id="0Xq-si-B9g"/>
+                            <constraint firstItem="qto-Ex-11f" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ilP-BG-oo6" secondAttribute="trailing" id="0Xq-si-B9g"/>
                             <constraint firstItem="QT9-O1-uTi" firstAttribute="top" secondItem="ilP-BG-oo6" secondAttribute="bottom" constant="33" id="4K5-Bw-NMp"/>
                             <constraint firstItem="ilP-BG-oo6" firstAttribute="centerX" secondItem="AAH-ag-twG" secondAttribute="centerX" id="89D-IO-91L"/>
                             <constraint firstItem="qto-Ex-11f" firstAttribute="trailing" secondItem="4Cp-Fm-5QC" secondAttribute="trailing" constant="60" id="EON-YU-WjW"/>
                             <constraint firstItem="qto-Ex-11f" firstAttribute="trailing" secondItem="RAV-hq-Lqh" secondAttribute="trailing" constant="60" id="NK3-FC-z7I"/>
-                            <constraint firstItem="QT9-O1-uTi" firstAttribute="leading" secondItem="qto-Ex-11f" secondAttribute="leading" constant="32" id="QOk-E5-HRg"/>
+                            <constraint firstItem="QT9-O1-uTi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qto-Ex-11f" secondAttribute="leading" id="QOk-E5-HRg"/>
                             <constraint firstItem="QT9-O1-uTi" firstAttribute="centerX" secondItem="AAH-ag-twG" secondAttribute="centerX" id="R2V-cF-5SI"/>
-                            <constraint firstItem="qto-Ex-11f" firstAttribute="trailing" secondItem="MCC-GF-MwG" secondAttribute="trailing" constant="32" id="TW6-bD-89i"/>
+                            <constraint firstItem="qto-Ex-11f" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MCC-GF-MwG" secondAttribute="trailing" id="TW6-bD-89i"/>
                             <constraint firstItem="4Cp-Fm-5QC" firstAttribute="top" secondItem="qto-Ex-11f" secondAttribute="top" constant="25" id="UE6-qC-SeC"/>
+                            <constraint firstItem="RAV-hq-Lqh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qto-Ex-11f" secondAttribute="leading" symbolic="YES" id="Vc5-Qy-1Ez"/>
                             <constraint firstItem="4Cp-Fm-5QC" firstAttribute="leading" secondItem="qto-Ex-11f" secondAttribute="leading" constant="53" id="Wfn-d7-zSo"/>
                             <constraint firstItem="mPS-gj-CPp" firstAttribute="centerX" secondItem="AAH-ag-twG" secondAttribute="centerX" id="YHQ-Wl-0kk"/>
                             <constraint firstItem="mPS-gj-CPp" firstAttribute="top" secondItem="4Cp-Fm-5QC" secondAttribute="bottom" priority="750" constant="85" id="Zcp-tU-qU5"/>
                             <constraint firstItem="ilP-BG-oo6" firstAttribute="top" secondItem="MCC-GF-MwG" secondAttribute="bottom" constant="8" id="bpF-yF-Uhh"/>
-                            <constraint firstItem="qto-Ex-11f" firstAttribute="trailing" secondItem="QT9-O1-uTi" secondAttribute="trailing" constant="32" id="eNd-6y-27j"/>
+                            <constraint firstItem="qto-Ex-11f" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QT9-O1-uTi" secondAttribute="trailing" id="eNd-6y-27j"/>
                             <constraint firstItem="MCC-GF-MwG" firstAttribute="top" secondItem="mPS-gj-CPp" secondAttribute="bottom" constant="37" id="fEy-5o-yjB"/>
                             <constraint firstItem="MCC-GF-MwG" firstAttribute="centerX" secondItem="AAH-ag-twG" secondAttribute="centerX" id="gFy-0V-Wz3"/>
                             <constraint firstItem="RAV-hq-Lqh" firstAttribute="top" secondItem="4Cp-Fm-5QC" secondAttribute="bottom" constant="8" id="sa8-tb-hCp"/>
-                            <constraint firstItem="MCC-GF-MwG" firstAttribute="leading" secondItem="qto-Ex-11f" secondAttribute="leading" constant="32" id="sdO-Do-tjP"/>
-                            <constraint firstItem="ilP-BG-oo6" firstAttribute="leading" secondItem="qto-Ex-11f" secondAttribute="leading" constant="32" id="sjl-qn-0CC"/>
+                            <constraint firstItem="MCC-GF-MwG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qto-Ex-11f" secondAttribute="leading" id="sdO-Do-tjP"/>
+                            <constraint firstItem="ilP-BG-oo6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qto-Ex-11f" secondAttribute="leading" id="sjl-qn-0CC"/>
                             <constraint firstItem="mPS-gj-CPp" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4Cp-Fm-5QC" secondAttribute="bottom" constant="10" id="z6Z-9r-DAf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qto-Ex-11f"/>

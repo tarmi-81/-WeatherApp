@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "weatherApp/VIPER/Interactor.swift"
-            timestampString = "589271974.932289"
+            timestampString = "589362514.0465569"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39">
+            startingLineNumber = "34"
+            endingLineNumber = "34">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -40,11 +40,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "weatherApp/VIPER/Interactor.swift"
-            timestampString = "589271974.9323519"
+            timestampString = "589362514.046901"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50">
+            startingLineNumber = "34"
+            endingLineNumber = "34">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -54,12 +54,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "weatherApp/VIPER/WeatherViewModel.swift"
-            timestampString = "589362195.4063179"
+            timestampString = "589362677.659209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "76"
             endingLineNumber = "76"
-            landmarkName = "serachTextChanged(_:)"
+            landmarkName = "init(interactor:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

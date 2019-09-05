@@ -21,17 +21,11 @@ class NetworkManger {
     private  let apiPath = "/data/2.5/weather"
     private  let scheme = "https"
     private  let headers = ["Content-Type": "application/x-www-form-urlencoded"]
-    
-    private enum ParamsName {
-        static let city = "q"
-        static let lat = "lat"
-        static let lon = "lon"
-        static let units = "units"
-        static let apiID  = "appid"
-    }
+
+    private let bag = DisposeBag()
     public let weatherModel = PublishSubject<WeatherModel>()
     public let errorSubject = PublishSubject<Error>()
-    
+
     private var weather: WeatherModel? {
         didSet {
             updateModel()
@@ -39,23 +33,20 @@ class NetworkManger {
     }
     private var errorMessage: Error? {
         didSet {
-           updateError()
+            updateError()
         }
     }
-    private func updateError(){
-       if let error = errorMessage {
-            self.errorSubject.on(.next(error))
-        }
+
+    private enum ParamsName {
+        static let city = "q"
+        static let lat = "lat"
+        static let lon = "lon"
+        static let units = "units"
+        static let apiID  = "appid"
     }
-    
-    private func updateModel() {
-        if let weather = weather {
-            self.weatherModel.on(.next(weather))
-        }
-    }
-    
-    private let bag = DisposeBag()
-    
+
+
+
     lazy private var getBaseComponent: URLComponents = {
         var urlComponents = URLComponents()
         urlComponents.scheme = scheme
@@ -105,4 +96,20 @@ class NetworkManger {
             .disposed(by: bag)
     }
     
+}
+
+extension NetworkManger {
+
+    private func updateError(){
+        if let error = errorMessage {
+            self.errorSubject.on(.next(error))
+        }
+    }
+
+    private func updateModel() {
+        if let weather = weather {
+            self.weatherModel.on(.next(weather))
+        }
+    }
+
 }
